@@ -5,7 +5,7 @@ let lastId = 0;
 const slice = createSlice({
   name: 'bugs',
   initialState: [],
-  reducer: {
+  reducers: {
     bugAdded: (bugs, action) => {
       bugs.push({
         id: ++lastId,
