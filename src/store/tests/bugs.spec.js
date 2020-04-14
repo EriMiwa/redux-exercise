@@ -2,11 +2,11 @@ import { addBug } from '../bugs';
 import configureStore from '../configureStore';
  
 describe('bugsSlice', () => {
-  it("should handle the addBug action", () => {
+  it("should handle the addBug action", async () => {
     const store = configureStore();
     const bug = { description: 'a'};
-    store.despatch(addBug(bug));
-    console.log(store.getState());
+    await store.dispatch(addBug(bug));
+    expect(store.getState().entities.bugs.list).toHaveLength(1);
   });
 });
 
